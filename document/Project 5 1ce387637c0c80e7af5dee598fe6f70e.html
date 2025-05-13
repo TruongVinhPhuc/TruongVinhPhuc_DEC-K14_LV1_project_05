@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Project 5</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1ce38763-7c0c-80e7-af5d-ee598fe6f70e" class="page sans"><header><h1 class="page-title">Project 5</h1><p class="page-description"></p></header><div class="page-body"><ul id="1ce38763-7c0c-80a5-acd1-fe832ed5a7bd" class="toggle"><li><details open=""><summary>Phân tích các columns của dataset:</summary><ul id="1ce38763-7c0c-80d3-b553-f6d88dbd228f" class="bulleted-list"><li style="list-style-type:disc"><strong>_id</strong>: cột định danh cho document của mongodb.</li></ul><ul id="1ce38763-7c0c-8040-a2f9-cd04a67f787f" class="bulleted-list"><li style="list-style-type:disc"><strong>time_stamp</strong>: thời gian dữ liệu được ghi lại (ở dạng Epoch).</li></ul><ul id="1ce38763-7c0c-8066-aed8-c2038019043d" class="bulleted-list"><li style="list-style-type:disc"><strong>ip</strong>: địa chỉ ip của người dùng.</li></ul><ul id="1ce38763-7c0c-80bc-814a-fbcb33b4dbb1" class="bulleted-list"><li style="list-style-type:disc"><strong>user_agent</strong>: user_agent của trình duyệt (<strong><a href="https://fptshop.com.vn/tin-tuc/danh-gia/user-agent-la-gi-176512">user_agent</a></strong>).</li></ul><ul id="1ce38763-7c0c-804f-82a5-edd732d206be" class="bulleted-list"><li style="list-style-type:disc"><strong>resolution</strong>: màn hình phân giải của người dùng sử dụng.</li></ul><ul id="1ce38763-7c0c-80bf-b27d-f12b9123044e" class="bulleted-list"><li style="list-style-type:disc"><strong>user_id_db</strong>: định danh của user trong database hệ thống (nếu người dùng có đăng nhập).</li></ul><ul id="1ce38763-7c0c-8068-ad1a-d3539dd7cc75" class="bulleted-list"><li style="list-style-type:disc"><strong>api_version</strong>: phiên bản api mà hệ thống sử dụng (dataset được cấp chỉ sử dụng version 1.0).</li></ul><ul id="1ce38763-7c0c-8063-a4a2-c7419113c4c3" class="bulleted-list"><li style="list-style-type:disc"><strong>device_id</strong>:  id của máy mà người dùng đang sử dụng (có thể là device_id giống như device_id của expo để gửi notification.</li></ul><ul id="1ce38763-7c0c-80c1-ac92-cd8e9715065b" class="bulleted-list"><li style="list-style-type:disc"><strong>store_id</strong>:  cửa hàng của sản phẩm mà user đang xem.</li></ul><ul id="1ce38763-7c0c-8010-968e-d4eefa660d0a" class="bulleted-list"><li style="list-style-type:disc"><strong>local_time</strong>: thời gian của server lúc gọi API track event này.</li></ul><ul id="1ce38763-7c0c-808b-a58a-c137279adea2" class="bulleted-list"><li style="list-style-type:disc"><strong>show_recommendation</strong>: xác định nếu có đưa ra recommendation ở trang hiện tại user đang navigate.</li></ul><ul id="1ce38763-7c0c-8060-901f-dff9602ac898" class="bulleted-list"><li style="list-style-type:disc"><strong>current_url</strong>: url hiện tại mà user đang ở.</li></ul><ul id="1ce38763-7c0c-80d2-bb42-c684c3c5157d" class="bulleted-list"><li style="list-style-type:disc"><strong>referrer_url</strong>: url trước đó của user trước khi ở url hiện tại.</li></ul><ul id="1ce38763-7c0c-8018-9db4-cdeaafc139ff" class="bulleted-list"><li style="list-style-type:disc"><strong>email_address</strong>: có thể là email của user nếu đã đăng nhập.</li></ul><ul id="1ce38763-7c0c-80d7-ac91-c24028f49615" class="bulleted-list"><li style="list-style-type:disc"><strong>collection</strong>: dùng để phân loại sự kiện người dùng đang làm gì (VD: xem home page thì sẽ là view_home_page).<figure id="1d238763-7c0c-80c9-a1ad-fe3bae1ea466" class="image"><a href="image.png"><img style="width:263.7749938964844px" src="image.png"/></a></figure></li></ul><ul id="1ce38763-7c0c-8057-bda6-f68e01eb58a3" class="bulleted-list"><li style="list-style-type:disc"><strong>product_id</strong>: id của sản phẩm đang xem (chỉ xuất hiện ở collection view_product_detail). </li></ul><ul id="1ce38763-7c0c-8013-b4f3-f02641818ebf" class="bulleted-list"><li style="list-style-type:disc"><strong>cat_id</strong>: id của category phù hợp với các option filter.</li></ul><ul id="1ce38763-7c0c-80ad-8839-c145d14d287c" class="bulleted-list"><li style="list-style-type:disc"><strong>option</strong>: sẽ khác nhau đối với mỗi collection khác nhau:<ul id="1d338763-7c0c-80c1-9ebd-c4471e3d68cd" class="bulleted-list"><li style="list-style-type:circle">Những collection nào không được liệt kê nghĩa là không có field option này.</li></ul><ul id="1ce38763-7c0c-80ed-b7cf-e644af5a3fbb" class="bulleted-list"><li style="list-style-type:circle">Collection ‘view_listing_page’:<ul id="1ce38763-7c0c-805d-a993-dc0815d1bfc1" class="bulleted-list"><li style="list-style-type:square">Có 3 loại option chọn</li></ul><ul id="1ce38763-7c0c-80a6-bf47-e9fb4885edc6" class="bulleted-list"><li style="list-style-type:square"><strong>alloy</strong>: hợp kim (trang sức kết hợp nhiều thành phần) - tức là phần chọn Option Metal của trang sức và màu sắc</li></ul><ul id="1ce38763-7c0c-8090-8085-c8a385bf4c1b" class="bulleted-list"><li style="list-style-type:square"><strong>diamond</strong>: loại đá (mặc dù tên field lại là diamond) - phần chọn Stones của trang sức (ở glamira có nhiều lựa chọn cho stones nhưng có vẻ là hệ thống chỉ track mỗi diamond.</li></ul><ul id="1ce38763-7c0c-80f1-87bb-d6bcc8e13761" class="bulleted-list"><li style="list-style-type:square"><strong>shapediamond</strong>: hình dạng của trang sức.</li></ul></li></ul><ul id="1ce38763-7c0c-80a7-95e2-c5c5707753a3" class="bulleted-list"><li style="list-style-type:circle">Collection ‘view_product_detail’, ‘add_to_cart_action’:<ul id="1ce38763-7c0c-80d0-8f3a-fb505a26c3d9" class="bulleted-list"><li style="list-style-type:square">Nó sẽ có cấu trúc như sau: [<br/>    {<br/>        option_label,<br/>        option_id,<br/>        value_label,<br/>        value_id<br/>    }<br/>]<br/></li></ul><ul id="1ce38763-7c0c-806d-bb5a-eef205f35002" class="bulleted-list"><li style="list-style-type:square">Các option này sẽ là về các option ta chọn của trang sức (alloy, diamond, tương tự với option của ‘view_listing_page’</li></ul></li></ul><ul id="1ce38763-7c0c-80d7-b86b-f4f040682461" class="bulleted-list"><li style="list-style-type:circle">Collection ‘checkout’:  khi người dùng đang ở bước thanh toán nhưng thay vì option thì sẽ có field cart_products gồm<ul id="1ce38763-7c0c-804a-ab2f-e31d113c652e" class="bulleted-list"><li style="list-style-type:square"><strong>product_id</strong>: id của product đang mua.</li></ul><ul id="1ce38763-7c0c-8035-ad2b-fc756a5c0de2" class="bulleted-list"><li style="list-style-type:square"><strong>amount</strong>: số lượng.</li></ul><ul id="1ce38763-7c0c-8088-9960-ea57e64594ed" class="bulleted-list"><li style="list-style-type:square"><strong>option</strong>: các option về trang sức giống với của collection ‘view_product_detail’.<figure id="1d338763-7c0c-801d-b800-d98efc0af77c" class="image"><a href="image%201.png"><img style="width:597.9750366210938px" src="image%201.png"/></a></figure></li></ul></li></ul><ul id="1cf38763-7c0c-800f-af02-d6674e242fa6" class="bulleted-list"><li style="list-style-type:circle">Collection ‘checkout_success’:<ul id="1d338763-7c0c-8092-be19-dc582c9140a8" class="bulleted-list"><li style="list-style-type:square">Khi người dùng đã thanh toán thành công thì sẽ tới bước này (có thể là hiện hóa đơn mua sắm).</li></ul><ul id="1d338763-7c0c-80a7-a384-da5bc64c6f33" class="bulleted-list"><li style="list-style-type:square">Thay vì field option thì sẽ có field cart_products tương tự với collection ‘checkout’</li></ul><ul id="1d338763-7c0c-8075-9e8e-ced15885992d" class="bulleted-list"><li style="list-style-type:square">Tuy nhiên sẽ có 1 vài khác biệt: mỗi product thanh toán sẽ có price và currency riêng.<figure id="1d338763-7c0c-8005-aab0-fab441caac27" class="image"><a href="image%202.png"><img style="width:598px" src="image%202.png"/></a></figure></li></ul></li></ul><ul id="1d338763-7c0c-80b2-b6a2-e5dae5a67996" class="bulleted-list"><li style="list-style-type:circle">Collection ‘select_product_option’:<ul id="1d338763-7c0c-8005-973f-c2639bc961f0" class="bulleted-list"><li style="list-style-type:square">Chọn các option của sản phẩm khi xem chi tiết sản phẩm thì event chọn option sẽ được track.</li></ul><ul id="1d338763-7c0c-8096-8a67-ee43d6523813" class="bulleted-list"><li style="list-style-type:square">Ví dụ ta chọn loại đá cho trang sức thì sẽ track lại là người dùng chọn loại đá gì cho sản phẩm đó chứ không track 1 lần cho tất cả.</li></ul><ul id="1d338763-7c0c-8068-a86d-c8af864343a9" class="bulleted-list"><li style="list-style-type:square">Các field của option sẽ tương tự với ‘view_product_detail’<figure id="1d338763-7c0c-8071-b3a2-e11737392715" class="image"><a href="image%203.png"><img style="width:597.9625244140625px" src="image%203.png"/></a></figure><figure id="1d338763-7c0c-8039-9326-c8f0c13f3a1e" class="image"><a href="image%204.png"><img style="width:597.9874877929688px" src="image%204.png"/></a></figure></li></ul></li></ul><ul id="1ce38763-7c0c-80ef-85c8-ff77298a8729" class="bulleted-list"><li style="list-style-type:circle">Collection ‘select_product_option_quality’:<ul id="1ce38763-7c0c-8037-908c-d21ba29bfe69" class="bulleted-list"><li style="list-style-type:square">Chỉ xuất hiện cho 1 số trang sức nhất định.</li></ul><ul id="1ce38763-7c0c-80df-83cb-d535b1767912" class="bulleted-list"><li style="list-style-type:square">Các trang sức thông thường khác thì chỉ cho chọn loại đá của trang sức.</li></ul><ul id="1ce38763-7c0c-802a-af4c-c00bc3d55801" class="bulleted-list"><li style="list-style-type:square">Các trang sức này sẽ cho người dùng chọn thêm chất lượng của loại đá.</li></ul><ul id="1ce38763-7c0c-8007-b18d-d0d184fd97bb" class="bulleted-list"><li style="list-style-type:square">⇒ Collection ‘select_product_option_quality’ nằm trong ‘view_product_detail’ và track người dùng sẽ có hứng thú với loại đá nào nhất.<figure id="1d338763-7c0c-8030-9423-c81bd36adce3" class="image"><a href="image%205.png"><img style="width:597.9874877929688px" src="image%205.png"/></a></figure></li></ul></li></ul><ul id="1d338763-7c0c-80eb-9087-e9d302340fbf" class="bulleted-list"><li style="list-style-type:circle">Collection ‘view_all_recommend’:<ul id="1d338763-7c0c-80c6-acc8-c7c2be2925fd" class="bulleted-list"><li style="list-style-type:square">Đây là collection khi người dùng kéo xuống phần xem tất cả các đề xuất sản phẩm ở url hiện tại và (có thể) hover vào product được recommend.</li></ul><ul id="1d338763-7c0c-800a-8995-daacb850b00b" class="bulleted-list"><li style="list-style-type:square">Các field của option ở collection này sẽ khác so với các collection khác.<figure id="1d338763-7c0c-80fc-995e-cb10643d445d" class="image"><a href="image%206.png"><img style="width:207.7624969482422px" src="image%206.png"/></a></figure></li></ul><ul id="1d338763-7c0c-803d-b3c7-d2dd295f94f5" class="bulleted-list"><li style="list-style-type:square">Có thể thấy, thay vì là field ‘diamond’ thì đã được thay thế bằng ‘stone’ - tức là loại đá của sản phẩm được đề xuất.</li></ul><ul id="1d338763-7c0c-805e-83c3-c03227a99c41" class="bulleted-list"><li style="list-style-type:square">‘pearlcolor’: màu của loại trang sức hoặc đá.</li></ul><ul id="1d338763-7c0c-801f-85e5-d65ffc7554ed" class="bulleted-list"><li style="list-style-type:square">‘finish’ (không rõ - có thể là sản phẩm này có là sản phẩm cuối cùng của list các sản phẩm recommend hay chưa).</li></ul><ul id="1d338763-7c0c-8042-b4aa-e4d7d410d38d" class="bulleted-list"><li style="list-style-type:square">‘price’: giá của sản phẩm.</li></ul><ul id="1d338763-7c0c-8045-9476-e0fe32c6373d" class="bulleted-list"><li style="list-style-type:square">‘category_id’: có thể là category_id mà sản phẩm thuộc về (để ý là thay vì để category_id: 601 thì nó sẽ để là ‘category_id’: 601. Key ở đây lại là nằm trong dấu ‘’).</li></ul><ul id="1d338763-7c0c-8059-81b0-e997c2eef390" class="bulleted-list"><li style="list-style-type:square">‘Kollektion’: biến tấu của từ Collection, có thể cho biết sản phẩm đang thuộc collection sản phẩm nào.</li></ul><ul id="1d338763-7c0c-804b-81c6-fa3d9c47233b" class="bulleted-list"><li style="list-style-type:square">‘kollektion_id’:  biến tấu của từ collection_id, có thể cho biết sản phẩm đang thuộc collection_id sản phẩm nào.</li></ul><ul id="1d338763-7c0c-804c-bdf2-df752c5a64eb" class="bulleted-list"><li style="list-style-type:square">Cách đặt tên field khá lộn xộn khi có lúc viết hoa chữ đầu và không viết (Kollektion và kollektion_id).</li></ul></li></ul></li></ul><ul id="1ce38763-7c0c-80c1-9132-f59674a38c2e" class="bulleted-list"><li style="list-style-type:disc"><strong>collect_id</strong>: chỉ xuất hiện ở collection ‘view_listing_page’, có thể là id của collection khác mà match với option filter (?).</li></ul><ul id="1ce38763-7c0c-803d-b1ad-c06c9ab23035" class="bulleted-list"><li style="list-style-type:disc"><strong>utm_source</strong>: chỉ xuất hiện nếu trong current_url xuất hiện itm_source và itm_medium - chỉ trang mà người dùng bắt đầu trước khi đến website của glamira. Nếu người dùng đến trang hiện tại từ page (tức itm) của hệ thống thì tham số này sẽ là false và ngược lại.</li></ul><ul id="1ce38763-7c0c-8099-89ca-dc24f87d65c7" class="bulleted-list"><li style="list-style-type:disc"><strong>utm_medium</strong>: chỉ xuất hiện nếu trong current_url xuất hiện itm_source và itm_medium hoặc utm_source và utm_medium. Nếu người dùng đến trang hiện tại từ page của hệ thống (tức itm) thì tham số này sẽ là false và ngược lại.<ul id="1ce38763-7c0c-8068-9424-f656054a1d54" class="bulleted-list"><li style="list-style-type:circle">Ví dụ cho utm_source và utm_medium tại sao false nếu url không có itm:<figure id="1ce38763-7c0c-80fb-bf28-e3a22bfdf7cb" class="image"><a href="image%207.png"><img style="width:235.7624969482422px" src="image%207.png"/></a></figure></li></ul><ul id="1ce38763-7c0c-8092-b69a-f2447347ccf2" class="bulleted-list"><li style="list-style-type:circle"><mark class="highlight-default_background">URL này có chứa tham số </mark><mark class="highlight-default_background"><strong>gclid</strong></mark><mark class="highlight-default_background">, là một mã theo dõi của </mark><mark class="highlight-default_background"><strong>Google Ads</strong></mark><mark class="highlight-default_background">, nhưng </mark><mark class="highlight-default_background"><strong>không có</strong></mark><mark class="highlight-default_background"> utm_source hay utm_medium,... nên hệ thống không lấy được dữ liệu UTM và trả về false.</mark></li></ul><ul id="1d438763-7c0c-806f-8af8-fb3441a57a44" class="bulleted-list"><li style="list-style-type:circle">Nếu trong current_url có utm thì trường này sẽ không trả về null<figure id="1d438763-7c0c-80b2-9286-cbd25d1c3afa" class="image"><a href="image%208.png"><img style="width:626px" src="image%208.png"/></a></figure></li></ul></li></ul><ul id="1d338763-7c0c-808d-b1bb-dea30b0a65d1" class="bulleted-list"><li style="list-style-type:disc"><strong>price</strong>: field này chỉ xuất hiện trong collection ‘add_to_cart_action’, cho biết giá của sản phẩm được đưa vào giỏ hàng.</li></ul><ul id="1d338763-7c0c-80ec-978d-d4afcb19ece1" class="bulleted-list"><li style="list-style-type:disc"><strong>currency</strong>: field này chỉ xuất hiện trong collection ‘add_to_cart_action’, cho biết tiền tệ được sử dụng cho sản phẩm được đưa vào giỏ hàng.</li></ul><ul id="1d338763-7c0c-803f-a7e4-e4692f87ad7b" class="bulleted-list"><li style="list-style-type:disc"><strong>is_paypal</strong>:   field này chỉ xuất hiện trong collection ‘add_to_cart_action’, cho biết nếu người dùng sử dụng paypal để trả.</li></ul><ul id="1d338763-7c0c-8094-96ad-c579747a5698" class="bulleted-list"><li style="list-style-type:disc"><strong>cart_products</strong>: chỉ có ở collection ‘checkout’, ‘checkout_success’ , dùng để xem những sản phẩm trong giỏ hàng muốn thanh toán có dạng (option thì cứ như view_product_detail)<figure id="1d338763-7c0c-806f-9bc6-f947ab164630" class="image"><a href="image%209.png"><img style="width:653.9750366210938px" src="image%209.png"/></a></figure></li></ul><ul id="1d338763-7c0c-801e-b494-e62aede8a144" class="bulleted-list"><li style="list-style-type:disc"><strong>viewing_product_id</strong>: chỉ xuất hiện ở collection ‘product_detail_recommendation’, field này đại diện cho product_id mà người dùng đang xem.</li></ul><ul id="1d338763-7c0c-8040-ba61-f27b2efb0260" class="bulleted-list"><li style="list-style-type:disc">‘<strong>recommendation_product_id</strong>’: chỉ xuất hiện ở collection ‘product_detail_recommendation’, field này cho biết sản phẩm recommendation khi đang view sản phẩm hiện tại.</li></ul><ul id="1d338763-7c0c-80cc-a2cb-fdb2ba016279" class="bulleted-list"><li style="list-style-type:disc">‘<strong>recommendation_clicked_position</strong>’: chỉ xuất hiện ở  collection ‘product_detail_recommendation’, field này cho biết (?)</li></ul><ul id="1d338763-7c0c-80e1-b30e-e9c6685181a8" class="bulleted-list"><li style="list-style-type:disc"><strong>‘key_search’</strong>: xuất hiện ở collection ‘search_box_action’, field này cho biết người dùng muốn search gì.</li></ul><ul id="1e438763-7c0c-80bc-bdd8-d1e630dc0ee4" class="bulleted-list"><li style="list-style-type:disc"><strong>price</strong>:</li></ul></details></li></ul><ul id="1ce38763-7c0c-806a-83ee-cf205a8b59dc" class="toggle"><li><details open=""><summary>Phân tích về dataset:</summary><ul id="1ce38763-7c0c-80b2-b7b5-f183f44843fd" class="bulleted-list"><li style="list-style-type:disc">Dataset là về event tracking của 1 hệ thống bán trang sức với nhiều loại lựa chọn.</li></ul><ul id="1ce38763-7c0c-80ec-90df-eb69278b9011" class="bulleted-list"><li style="list-style-type:disc">Event track được người dùng mọi nơi trên thế giới.</li></ul><ul id="1cf38763-7c0c-8095-8a4d-f4f94c635339" class="bulleted-list"><li style="list-style-type:disc">Có thể data này sẽ được sử dụng để cho mục đích marketing hoặc Machine Learning nhằm tìm ra giải pháp hay nước nào hay loại đá trang sức nào nên được ưu tiên.</li></ul><ul id="1cf38763-7c0c-80e1-ab7d-c0241b07ceac" class="bulleted-list"><li style="list-style-type:disc">Dataset bắt đầu từ  1585699201 (1/4/2020)  tới 1591266092 (4/6/2020).</li></ul><figure id="1d038763-7c0c-8035-9ce3-c2c88e152b8c" class="image"><a href="image%2010.png"><img style="width:524px" src="image%2010.png"/></a></figure><ul id="1cf38763-7c0c-80c3-a4d7-c004076df0dd" class="bulleted-list"><li style="list-style-type:disc">Có thể thấy, event track được nhiều người dùng từ khắp nơi trên thế giới, nhưng chủ yếu vẫn là Đức, Mỹ, Anh và Pháp.</li></ul><ul id="1d238763-7c0c-80fb-b77a-c573342a0f95" class="bulleted-list"><li style="list-style-type:disc">Dataset có track device_id (tức thiết bị của người dùng) có thể là cho trường hợp nếu người dùng không đăng nhập thì vẫn có thể show recommendation cho thiết bị đó (dựa trên lịch sử hoạt động của thiết bị đó).</li></ul><ul id="1d338763-7c0c-807f-905d-fe5a925c01dc" class="bulleted-list"><li style="list-style-type:disc">Dataset có thể được sử dụng để track hành trình của người dùng để đến với bước thanh toán ⇒ đưa ra recommend tốt nhất cho khách hàng.</li></ul></details></li></ul><ul id="1d338763-7c0c-804a-9ae3-f50b4e15cf7c" class="toggle"><li><details open=""><summary>Tổng hợp các field theo field ‘collection’:</summary><ul id="1d338763-7c0c-809b-af9f-e8e4dbb73d34" class="toggle"><li><details open=""><summary>Collection ‘add_to_cart_action’:</summary><figure id="1d338763-7c0c-80ae-aa3f-d15b3429a52f" class="image"><a href="image%2011.png"><img style="width:653.9625244140625px" src="image%2011.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8032-8168-d510bbfbfcd7" class="toggle"><li><details open=""><summary>Collection ‘back_to_product_action’:</summary><figure id="1d338763-7c0c-802a-a041-fa73869d515e" class="image"><a href="image%2012.png"><img style="width:653.9750366210938px" src="image%2012.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8052-9656-e6c8438e3197" class="toggle"><li><details open=""><summary>Collection ‘checkout’:</summary><figure id="1d338763-7c0c-80ad-a5a7-c38cb0b348b6" class="image"><a href="image%2013.png"><img style="width:653.9750366210938px" src="image%2013.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-809a-9d19-fc623be0dea8" class="toggle"><li><details open=""><summary>Collection ‘checkout_success’:</summary><figure id="1d338763-7c0c-8073-8f2d-e9a1742e1b57" class="image"><a href="image%2014.png"><img style="width:653.9874877929688px" src="image%2014.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-808e-b24a-c3c9d61f12c5" class="toggle"><li><details open=""><summary>Collection ‘landing_page_recommendation_clicked’:</summary><figure id="1d338763-7c0c-80dc-8ad9-cdfdab7eebbb" class="image"><a href="image%2015.png"><img style="width:653.9750366210938px" src="image%2015.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80f2-90e1-e0d2093436a8" class="toggle"><li><details open=""><summary>Collection ‘landing_page_recommendation_noticed’:</summary><figure id="1d338763-7c0c-807b-ba7e-c298fc7365a8" class="image"><a href="image%2016.png"><img style="width:653.9500122070312px" src="image%2016.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80e9-8ca8-d78dfc650254" class="toggle"><li><details open=""><summary>Collection ‘landing_page_recommendation_visible’:</summary><figure id="1d338763-7c0c-80c6-9d77-d74307fe7af0" class="image"><a href="image%2017.png"><img style="width:653.9500122070312px" src="image%2017.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8069-9ccc-fce980d31630" class="toggle"><li><details open=""><summary>Collection ‘listing_page_recommendation_clicked’:</summary><figure id="1d338763-7c0c-8088-9b33-dc38c5386d56" class="image"><a href="image%2018.png"><img style="width:654px" src="image%2018.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80ea-9a22-eba8b2fe77e5" class="toggle"><li><details open=""><summary>Collection ‘listing_page_recommendation_noticed’:</summary><figure id="1d338763-7c0c-80b4-9d79-e2b5b07182a7" class="image"><a href="image%2019.png"><img style="width:653.9375px" src="image%2019.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80c5-aec6-c4e7ff8c130b" class="toggle"><li><details open=""><summary>Collection ‘listing_page_recommendation_visible’:</summary><figure id="1d338763-7c0c-8020-af30-e332f6423e63" class="image"><a href="Screenshot_2025-04-12_222748.png"><img style="width:653.9625244140625px" src="Screenshot_2025-04-12_222748.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8027-96d0-fcdb79361562" class="toggle"><li><details open=""><summary>Collection ‘product_detail_recommendation_clicked’:</summary><figure id="1d338763-7c0c-80a3-8943-dc60f980d8c1" class="image"><a href="image%2020.png"><img style="width:653.9750366210938px" src="image%2020.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80e6-a0a1-ec949b1d8585" class="toggle"><li><details open=""><summary>Collection ‘product_detail_recommendation_noticed’:</summary><figure id="1d338763-7c0c-80bc-9779-f2052be628a2" class="image"><a href="image%2021.png"><img style="width:653.9874877929688px" src="image%2021.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-803a-a50b-c797d89a8d28" class="toggle"><li><details open=""><summary>Collection ‘product_detail_recommendation_visible’:</summary><figure id="1d338763-7c0c-804f-8057-fee9df5ce3a9" class="image"><a href="image%2022.png"><img style="width:653.9874877929688px" src="image%2022.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80d5-be14-fe60f77d8bf5" class="toggle"><li><details open=""><summary>Collection ‘product_view_all_recommend_clicked’:</summary><figure id="1d338763-7c0c-80c6-8cd7-d27ce20786e6" class="image"><a href="image%2023.png"><img style="width:653.9750366210938px" src="image%2023.png"/></a></figure></details></li></ul><ul id="1e438763-7c0c-808d-b243-ea0796eb7c83" class="toggle"><li><details open=""><summary>Collection ‘product_detail_recommendation_clicked</summary><figure id="1e938763-7c0c-808e-8bec-f4bc31c43fa5" class="image"><a href="image%2024.png"><img style="width:878px" src="image%2024.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-806d-b168-c22d0203e10b" class="toggle"><li><details open=""><summary>Collection ‘search_box_action’:</summary><figure id="1d338763-7c0c-80e7-a3fe-fbf4b63792fc" class="image"><a href="image%2025.png"><img style="width:653.9874877929688px" src="image%2025.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-802d-ac39-decf80502917" class="toggle"><li><details open=""><summary>Collection ‘select_product_option’:</summary><figure id="1d338763-7c0c-8056-93a3-c1b899815ce7" class="image"><a href="image%2026.png"><img style="width:263.76251220703125px" src="image%2026.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-804c-97b7-cba5821f0684" class="toggle"><li><details open=""><summary>Collection ‘select_product_option_quality’:</summary><figure id="1d338763-7c0c-8091-96fe-f504659c2f09" class="image"><a href="image%2027.png"><img style="width:653.9750366210938px" src="image%2027.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8094-883e-df83a23e62dd" class="toggle"><li><details open=""><summary>Collection ‘sorting_relevance_click_action’:</summary><figure id="1d338763-7c0c-802c-b99b-f2ae8764957a" class="image"><a href="image%2028.png"><img style="width:263.76251220703125px" src="image%2028.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8017-9c44-d0594f23744c" class="toggle"><li><details open=""><summary>Collection ‘view_all_recommend’:</summary><figure id="1d338763-7c0c-80c7-abce-cf5ca1c7114f" class="image"><a href="image%2029.png"><img style="width:263.76251220703125px" src="image%2029.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80ec-a825-cecd2cab9539" class="toggle"><li><details open=""><summary>Collection ‘view_home_page’:</summary><figure id="1d338763-7c0c-80f2-a8cc-d1cb49e4c87d" class="image"><a href="image%2030.png"><img style="width:653.9625244140625px" src="image%2030.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80ae-8447-f0873e494d7d" class="toggle"><li><details open=""><summary>Collection ‘view_landing_page’:</summary><figure id="1d338763-7c0c-8073-809a-c8e3f4d85cba" class="image"><a href="image%2031.png"><img style="width:653.9874877929688px" src="image%2031.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8047-ab02-c42cfbf9bdee" class="toggle"><li><details open=""><summary>Collection ‘view_listing_page’:</summary><figure id="1d338763-7c0c-8065-bba9-dd7b95124279" class="image"><a href="image%2032.png"><img style="width:263.7749938964844px" src="image%2032.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-800b-9e7e-c1b18ef2fd02" class="toggle"><li><details open=""><summary>Collection ‘view_my_account’:</summary><figure id="1d338763-7c0c-80f0-97a8-eed7eea50e72" class="image"><a href="image%2033.png"><img style="width:263.75px" src="image%2033.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80c6-bb4d-ce519226e718" class="toggle"><li><details open=""><summary>Collection ‘view_product_detail’:</summary><figure id="1d338763-7c0c-8046-ad71-f9cb8ee8c14b" class="image"><a href="image%2034.png"><img style="width:263.7749938964844px" src="image%2034.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8003-98a2-d4ba3be4dc77" class="toggle"><li><details open=""><summary>Collection ‘view_shopping_cart’:</summary><figure id="1d338763-7c0c-8040-afee-e9935afbd171" class="image"><a href="image%2035.png"><img style="width:263.7749938964844px" src="image%2035.png"/></a></figure><figure id="1d338763-7c0c-803f-8d65-ff3ba86ef724" class="image"><a href="image%2036.png"><img style="width:653.9750366210938px" src="image%2036.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-8038-aa37-e207beb0c9bc" class="toggle"><li><details open=""><summary>Collection ‘view_sorting_relevance’:</summary><figure id="1d338763-7c0c-80f1-a0aa-f5f2d841a738" class="image"><a href="image%2037.png"><img style="width:653.9874877929688px" src="image%2037.png"/></a></figure></details></li></ul><ul id="1d338763-7c0c-80ca-b67b-d9e27004b631" class="toggle"><li><details open=""><summary>Collection ‘view_static_page’:</summary><figure id="1d338763-7c0c-80a1-90e6-e74e3607d790" class="image"><a href="image%2038.png"><img style="width:653.9625244140625px" src="image%2038.png"/></a></figure></details></li></ul></details></li></ul><ul id="1d338763-7c0c-80d6-b0af-f34151f821dd" class="toggle"><li><details open=""><summary>Nhận xét về dataset:</summary><ul id="1d338763-7c0c-80e7-a0b0-db26f1765361" class="bulleted-list"><li style="list-style-type:disc">Nhiều field để key-value khá lạ: các trường cần boolean thì lại để string cho boolean và có 1 số key lại để nằm trong dấu ‘’.</li></ul><ul id="1d338763-7c0c-80c4-8a06-ff2fb32943ba" class="bulleted-list"><li style="list-style-type:disc">Các field như ‘utm_source’ hay ‘utm_medium’ có lúc xuất hiện hoặc không (dù trong current_url có keyword ‘itm’ hay ‘gclid’).</li></ul><ul id="1d338763-7c0c-809d-8fff-c7c87e7ecd82" class="bulleted-list"><li style="list-style-type:disc">Một số field có value là ‘’ khá nhiều.</li></ul></details></li></ul><ul id="1d638763-7c0c-8035-aec2-e6953d12e1f1" class="toggle"><li><details open=""><summary>Cách setup</summary><ul id="1d638763-7c0c-809f-b373-fd7f0fd85d03" class="bulleted-list"><li style="list-style-type:disc">Tạo 1 VM có cấu hình 4vCPU và 16GB memory (có thể cung cấp nhiều GB RAM hơn để thuận tiện cho việc xử lí data).</li></ul><ul id="1d638763-7c0c-8054-ac67-d890e961cdf8" class="bulleted-list"><li style="list-style-type:disc">Tạo 1 disk 150GB cho boot và durable storage.</li></ul><ul id="1d638763-7c0c-8089-b336-ece32ca7d604" class="bulleted-list"><li style="list-style-type:disc">Gắn disk đó cho VM đã tạo.</li></ul><ul id="1d638763-7c0c-800e-b771-c38c9e21c05c" class="bulleted-list"><li style="list-style-type:disc">Tạo bucket storage trong GCS với location là Region (tiết kiệm chi phí và hiện tại đang chưa cần tính năng replication.</li></ul><ul id="1d638763-7c0c-800f-93af-fdee4274296b" class="bulleted-list"><li style="list-style-type:disc">Kết nối VM thông qua SSH, sử dụng câu lệnh <strong>gcloud init </strong>để truy cập vào project hiện tại của chúng ta.</li></ul><ul id="1d638763-7c0c-80fb-9037-dccf2e752f09" class="bulleted-list"><li style="list-style-type:disc">Cài đặt mongodb, bật mongodb service.</li></ul><ul id="1d638763-7c0c-80ab-a021-c714f9f53072" class="bulleted-list"><li style="list-style-type:disc">Tạo môi trường python ảo khác (để tránh xung đột với các project sau này).</li></ul><ul id="1d638763-7c0c-80a6-a7bb-dde5f2fcdf05" class="bulleted-list"><li style="list-style-type:disc">Cài đặt các thư viện phù hợp cho mongodb, ip2location và các thư viện liên quan khác trong quá trình code.</li></ul></details></li></ul><p id="1d238763-7c0c-807f-bf18-d62b3578d2be" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
