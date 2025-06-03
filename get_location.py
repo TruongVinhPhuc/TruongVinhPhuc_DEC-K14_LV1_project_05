@@ -56,6 +56,8 @@ def main():
                 "ip": ip,
                 "error": str(e),
             })
+    if batch:
+        ip_location_collection.insert_many(batch)
     print("IP location data processing completed.")
 
     end = time.time()
