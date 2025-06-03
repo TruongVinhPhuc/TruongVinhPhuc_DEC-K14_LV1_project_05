@@ -37,7 +37,7 @@ def main():
             # print(item["_id"])
             ip = item["ip"]
             if ip not in unique_ips:
-                country, region, city, latitude, longtitude, city, district = process_ip(ip)
+                country, region, city, latitude, longtitude, district = process_ip(ip)
                 unique_ips.add(ip)
                 valid_ips.append(
                     {"summary_id": item["_id"], "ip": ip, "country": country, 'region': region, 'city': city, 'district': district}
